@@ -31,11 +31,15 @@ public class Main {
 
         switch (userInput) {
             case "1":
-                System.out.println("Case1: Value is: " + 1);
+                System.out.println("Starting story...");
+                System.out.println("Encrypting...");
+                System.out.println("Loading...");
+                System.out.println("Starting...");
+                System.out.println();
                 break;
 
             case "2":
-                System.out.println("Case2: Value is: " + 2);
+                vendingMachineMenu();
                 break;
 
             case "3":
@@ -73,7 +77,7 @@ public class Main {
 
         System.out.println("1 >>> BUY");
         System.out.println();
-        System.out.println("2 >>> RESTOCK");
+        System.out.println("2 >>> RESTOCK (Should I include this, IDK)");
         System.out.println();
         System.out.println("3 >>> CHECK PRICES");
         System.out.println();
@@ -87,7 +91,7 @@ public class Main {
         userInput = sc.nextLine();
 
         //As long as the choice he makes is not Leave, we will keep looping.
-        while(!userInput.equalsIgnoreCase("LEAVE")) {
+        while(!userInput.equalsIgnoreCase("5")) {
             //Here is the interesting part.
             //We start checking what choices the user made
             switch (userInput) {
@@ -114,6 +118,8 @@ public class Main {
             }
             userInput = sc.nextLine();
         }
+
+        System.out.println("You left the Vending Machine and went home. Hopefully feeling refreshed.");
     }
 
     //Checks whether the user pressed enter. If so, continue the story
@@ -125,5 +131,23 @@ public class Main {
         }
     }
 
+    public static void vendingMachineMenu() {
+        switch (userInput) {
+
+            case "1":
+
+            case "2":
+
+            case "3":
+
+            case "4":
+
+            case "5":
+
+
+            default:
+                System.out.println("Please choose one of the following numbers.");
+        }
+    }
 
 }
