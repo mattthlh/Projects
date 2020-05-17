@@ -25,6 +25,10 @@ public class Drink extends VendingMachine {
     }
 
     public void removeOne() {
-        quantity--;
+        if (quantity > 0) {
+            quantity--;
+        } else {
+            System.out.println("We are out of stock. Please buy another drink.");
+        }
     }
 }

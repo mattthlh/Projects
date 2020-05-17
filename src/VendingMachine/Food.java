@@ -23,4 +23,12 @@ public class Food extends VendingMachine {
     public String getName() {
         return name;
     }
+
+    public void removeOne() {
+        if (quantity > 0) {
+            quantity--;
+        } else {
+            System.out.println("We are out of stock. Please buy another drink.");
+        }
+    }
 }

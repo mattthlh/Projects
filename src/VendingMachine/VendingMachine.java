@@ -9,6 +9,7 @@ public class VendingMachine {
     private int row = 3;
     private int col = 4;
     private int size = row * col;
+    private String type = "Drinks";
 
     public VendingMachine() {
 
@@ -31,6 +32,15 @@ public class VendingMachine {
         }
     }
 
+    public void clearExtra() {
+        while (foods.size() > size) {
+            foods.remove(size);
+        }
+        while (drinks.size() > size) {
+            drinks.remove(size);
+        }
+    }
+
     public void removeDrink(Drink drink) {
         drinks.remove(drink);
     }
@@ -43,8 +53,20 @@ public class VendingMachine {
         foods.clear();
         drinks.clear();
     }
+    public void showContents() {
 
-    public void changeSize(int size) {
+    }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void changeSize(int row, int col) {
+        this.row = row;
+        this.col = col;
     }
 }
