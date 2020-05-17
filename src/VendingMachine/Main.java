@@ -149,6 +149,7 @@ public class Main {
         System.out.println("What would you like to do? \n" +
                 "Type the number of your choosing.");
         System.out.println("The ones you don't change are chosen by default.");
+        System.out.println();
 
         System.out.println("================================== ");
 
