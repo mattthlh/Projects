@@ -1,17 +1,16 @@
 package VendingMachine;
 
-import java.util.ArrayList;
+import java.util.Stack;
 
 public class VendingMachine{
 
-    private ArrayList<Drink> drinks = new ArrayList<>();
-    private VendingMachineItem[][][] vendingMachineItems;
+    private Stack<VendingMachineItem>[][] vendingMachineItems;
     private int row;
     private int col;
     private int depth;
 
-    public VendingMachine(int row, int col, int depth) {
-        this.vendingMachineItems = new VendingMachineItem[row][col][depth];
+    public VendingMachine(int row, int col,int depth) {
+        this.vendingMachineItems = new Stack[row][col];
 
         this.row = row - 1;
         this.col = col - 1;
@@ -19,10 +18,11 @@ public class VendingMachine{
     }
 
     public void dispense (int row, int col) {
-        if(!isFunctional(row, col)) {
-            for (int i = 0; i < depth; i++) {
+        if(!isEmpty(row, col)) {
+            VendingMachineItem purchased = vendingMachineItems[row][col].get(0);
+            vendingMachineItems[row][col].pop();
 
-            }
+            System.out.println("You bought a " + purchased.getName() + "!");
         } else {
             System.out.println("Sorry, this slot is empty. " +
                     "Please try something else");
@@ -33,16 +33,8 @@ public class VendingMachine{
 
     }
 
-    public boolean isFunctional(int row, int col) {
-        if (vendingMachineItems[row][col].length <= 0) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    public boolean isEmpty (int row, int col, int depth) {
-        if (vendingMachineItems[row][col][depth] == null) {
+    public boolean isEmpty (int row, int col) {
+        if (vendingMachineItems[row][col].size() == 0) {
             return true;
         } else {
             return false;
