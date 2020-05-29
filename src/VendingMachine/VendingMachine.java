@@ -30,7 +30,7 @@ public class VendingMachine{
     }
 
     public void refill (int row, int col, VendingMachineItem vendingMachineItem) {
-
+        vendingMachineItems[row][col].push(vendingMachineItem);
     }
 
     public boolean isEmpty (int row, int col) {
