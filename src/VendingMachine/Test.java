@@ -1,5 +1,7 @@
 package VendingMachine;
 
+import java.util.Scanner;
+
 public class Test {
     public static void main(String[] args) {
         Drink coke = new Drink("Coke", 10, 2.50);
@@ -9,5 +11,11 @@ public class Test {
         Drink pepsi = new Drink("Pepsi", 10, 2.50);
 
         VendingMachine vendingMachine;
+
+        Scanner sc = new Scanner(System.in);
+
+        if (sc.hasNextInt()) {
+            System.out.println("oof");
+        }
     }
 }

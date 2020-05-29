@@ -1,6 +1,6 @@
 package VendingMachine;
 
-public class Drink extends VendingMachine {
+public class Drink implements VendingMachineItem{
 
     private String name;
     private int quantity;
@@ -12,23 +12,13 @@ public class Drink extends VendingMachine {
         this.price = price;
     }
 
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
     public String getName() {
         return name;
     }
-
-    public void removeOne() {
-        if (quantity > 0) {
-            quantity--;
-        } else {
-            System.out.println("We are out of stock. Please buy another drink.");
-        }
+    public int getAmmount() {
+        return quantity;
+    }
+    public double getPrice() {
+        return price;
     }
 }

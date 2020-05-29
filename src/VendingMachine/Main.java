@@ -43,9 +43,8 @@ public class Main {
                     break;
 
                 case "3":
-                    System.out.println("Case3: Value is: " + 3);
+                    characterMenu();
                     break;
-
 
                 case "4":
                     System.out.println("Are you sure you want to exit? [Y/N]");
@@ -127,7 +126,7 @@ public class Main {
 
 
                 default:
-                    System.out.println("Type one of the numbers please.");
+                    System.out.println("Invalid option, Please choose one of the following numbers.");
             }
             userInput = sc.nextLine();
         }
@@ -146,50 +145,102 @@ public class Main {
 
     public static void vendingMachineMenu() {
 
-        System.out.println("What would you like to do? \n" +
-                "Type the number of your choosing.");
-        System.out.println("The ones you don't change are chosen by default.");
-        System.out.println();
+        while (true) {
+            System.out.println("What would you like to do? \n" +
+                    "Type the number of your choosing.");
+            System.out.println("The ones you don't change are chosen by default.");
+            System.out.println();
 
-        System.out.println("================================== ");
+            System.out.println("================================== ");
+            System.out.println();
+            System.out.println("1 >>> REFILL VENDING MACHINE");
+            System.out.println();
+            System.out.println("2 >>> SHOW CONTENTS");
+            System.out.println();
+            System.out.println("3 >>> GO BACK TO MAIN MENU");
+            System.out.println();
+            System.out.println("================================= ");
 
-        System.out.println("1 >>> CHANGE VENDING MACHINE SIZE");
-        System.out.println();
-        System.out.println("2 >>> CHOOSE VENDING MACHINE TYPE");
-        System.out.println();
-        System.out.println("3 >>> REFILL VENDING MACHINE");
-        System.out.println();
-        System.out.println("4 >>> SHOW CONTENTS");
-        System.out.println();
-        System.out.println("5 >>> GO BACK TO MAIN MENU");
+            userInput = sc.nextLine();
 
-        System.out.println("================================= ");
+            switch (userInput) {
 
-        switch (userInput) {
+                case "1":
 
-            case "1":
-                System.out.println("Please specify the number of " +
-                        "rows and columns like this:");
-                System.out.println("Row,Column");
+                case "2":
 
-                userInput = sc.nextLine();
+                case "3":
+                    return;
 
-                String[] temp = userInput.split(",");
+                default:
+                    System.out.println("Invalid option, Please choose one of the following numbers.");
+            }
+        }
+    }
 
-                vendingMachine.changeSize(Integer.parseInt(temp[0]),
-                        Integer.parseInt(temp[1]));
-            case "2":
+    public static void characterMenu() {
+        userInput = "";
 
-            case "3":
+        while (true) {
 
-            case "4":
-                return;
+            System.out.println("What would you like to change?");
 
-            case "5":
-                return;
+            System.out.println("================================== ");
 
-            default:
-                System.out.println("Please choose one of the following numbers.");
+            System.out.println("1 >>> CHANGE NAME");
+            System.out.println();
+            System.out.println("2 >>> CHANGE AGE");
+            System.out.println();
+            System.out.println("3 >>> CHANGE OCCUPATION");
+            System.out.println();
+            System.out.println("4 >>> CHANGE BALANCE");
+            System.out.println();
+            System.out.println("5 >>> GO BACK TO MAIN MENU");
+
+            System.out.println("================================= ");
+
+            userInput = sc.nextLine();
+
+            switch (userInput) {
+
+                case "1":
+                    System.out.println("What will be your character's NAME?");
+
+                    userInput = sc.nextLine();
+                    mainCharacter.setName(userInput);
+
+                    break;
+
+                case "2":
+                    System.out.println("What will be your character's AGE?");
+
+                    userInput = sc.nextLine();
+                    mainCharacter.setAge(Integer.parseInt(userInput));
+
+                    break;
+
+                case "3":
+                    System.out.println("What will be your character OCCUPATION?");
+
+                    userInput = sc.nextLine();
+                    mainCharacter.setOccupation(userInput);
+
+                    break;
+
+                case "4":
+                    System.out.println("What will be your character BALANCE?");
+
+                    userInput = sc.nextLine();
+                    mainCharacter.setMoney(Integer.parseInt(userInput));
+
+                    break;
+
+                case "5":
+                    return;
+
+                default:
+                    System.out.println("Invalid option, Please choose one of the following numbers.");
+            }
         }
     }
 

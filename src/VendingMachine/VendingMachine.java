@@ -2,71 +2,50 @@ package VendingMachine;
 
 import java.util.ArrayList;
 
-public class VendingMachine {
+public class VendingMachine{
 
     private ArrayList<Drink> drinks = new ArrayList<>();
-    private ArrayList<Food> foods = new ArrayList<>();
-    private int row = 3;
-    private int col = 4;
-    private int size = row * col;
-    private String type = "Drinks";
+    private VendingMachineItem[][][] vendingMachineItems;
+    private int row;
+    private int col;
+    private int depth;
 
-    public VendingMachine() {
+    public VendingMachine(int row, int col, int depth) {
+        this.vendingMachineItems = new VendingMachineItem[row][col][depth];
 
+        this.row = row - 1;
+        this.col = col - 1;
+        this.depth = depth - 1;
     }
 
-    public VendingMachine(int row, int col) {
-        this.row = row;
-        this.col = col;
-    }
+    public void dispense (int row, int col) {
+        if(!isFunctional(row, col)) {
+            for (int i = 0; i < depth; i++) {
 
-    public void addDrink(Drink drink) {
-        if (drinks.size() <= size) {
-            drinks.add(drink);
+            }
+        } else {
+            System.out.println("Sorry, this slot is empty. " +
+                    "Please try something else");
         }
     }
 
-    public void addFood(Food food) {
-        if (foods.size() <= size) {
-            foods.add(food);
+    public void refill (int row, int col, VendingMachineItem vendingMachineItem) {
+
+    }
+
+    public boolean isFunctional(int row, int col) {
+        if (vendingMachineItems[row][col].length <= 0) {
+            return false;
+        } else {
+            return true;
         }
     }
 
-    public void clearExtra() {
-        while (foods.size() > size) {
-            foods.remove(size);
+    public boolean isEmpty (int row, int col, int depth) {
+        if (vendingMachineItems[row][col][depth] == null) {
+            return true;
+        } else {
+            return false;
         }
-        while (drinks.size() > size) {
-            drinks.remove(size);
-        }
-    }
-
-    public void removeDrink(Drink drink) {
-        drinks.remove(drink);
-    }
-
-    public void removeFood(Food food) {
-        foods.remove(food);
-    }
-
-    public void clearVendingMachine() {
-        foods.clear();
-        drinks.clear();
-    }
-    public void showContents() {
-
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public void changeSize(int row, int col) {
-        this.row = row;
-        this.col = col;
     }
 }
