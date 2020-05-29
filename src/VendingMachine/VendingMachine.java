@@ -5,16 +5,10 @@ import java.util.Stack;
 public class VendingMachine{
 
     private Stack<VendingMachineItem>[][] vendingMachineItems;
-    private int row;
-    private int col;
-    private int depth;
 
     public VendingMachine(int row, int col,int depth) {
         this.vendingMachineItems = new Stack[row][col];
 
-        this.row = row - 1;
-        this.col = col - 1;
-        this.depth = depth - 1;
     }
 
     public void dispense (int row, int col) {
